@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CSVReader from 'react-csv-reader'
-
+import Cookies from './Cookies'
 import "./App.css";
 
 export default class Uploader extends Component {
@@ -74,20 +74,26 @@ export default class Uploader extends Component {
       )
       return (
         <div>
-          <CSVReader
+          <section className="card mt-5">
+          <CSVReader 
           cssClass="csv-reader-input"
-          label="Select CSV with secret Death Star statistics"
+          label="Select CSV File to upload"
           onFileLoaded={this.fileSelected}
           onError={this.handleDarkSideForce}
           inputId="ObiWan"
           inputStyle={{color: 'red'}}
         />
-        <button onClick={this.handleSubmit}>submit</button>
+                    
+        </section>
+         
+        <button className="m-3" onClick={this.handleSubmit} >submit</button>
       
         <section className="container">
             <div className="row">{fbList}</div>
           </section>
-      
+      <section>
+        <Cookies />
+      </section>
 
         </div>
 
